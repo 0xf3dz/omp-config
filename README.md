@@ -1,45 +1,50 @@
-# OMP Untitled Metrics
+# Personal OMP configuration
 
-This OMP extension shows session-scoped routing metrics from [Untitled](https://tryuntitled.ai/) in the OMP status bar.
+Personal extensions and developer configuration for [Oh My Pi](https://github.com/can1357/oh-my-pi).
+The repository keeps the `omp-untitled` name and Git history.
 
-## Requirements
+## Layout
 
-- [Oh My Pi](https://github.com/can1357/oh-my-pi)
-- [Untitled](https://tryuntitled.ai/) on macOS
-- An OMP OpenAI Codex provider that sends requests through the local Untitled relay
-
-## Install
-
-Run the remote installer:
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/0xf3dz/omp-untitled/main/install.sh | bash
+```text
+extensions/
+  untitled/       Untitled telemetry extension and installer
+README.md         Repository setup and conventions
 ```
 
-The installer:
+Each extension owns its entry file and documentation.
+The repository root does not install an extension bundle.
 
-- Installs the plugin from `github:0xf3dz/omp-untitled`.
-- Adds the extension status to the main OMP status bar.
+## Setup
 
-Restart OMP after installation.
+1. Install OMP.
+2. Clone this repository:
 
-## Use
+   ```bash
+   git clone git@github.com:0xf3dz/omp-untitled.git
+   cd omp-untitled
+   ```
 
-- The OMP status bar shows the routed model, request count, workload savings, and capacity estimate for the current session.
-- Run `/untitled` to show or hide all extension output.
-- Run `/untitled details` to show or hide the detail panel.
-- Run `/models` to switch between specific models and the untitled router.
-- Note: `/untitled` only shows or hides metrics and does not change the model.
+3. Read the [Untitled instructions](extensions/untitled/README.md) before installation.
 
+## Existing installation
 
-Exact token savings need a paired Sol comparison. The extension shows `—` when that comparison does not exist.
+The old GitHub-root package no longer serves as an installation source.
+To migrate an existing Untitled installation, run this command from the checkout:
 
-## Data source
+```bash
+bash extensions/untitled/install.sh
+```
 
-The extension reads the local Untitled telemetry log. It checks these sources in order:
+The installer links the local package under its existing `omp-untitled` identity.
+Restart OMP after the migration.
+Do not use the previous remote `curl | bash` command.
 
-1. `UNTITLED_SUBSCRIPTION_LOCAL_LOG`
-2. `~/Library/Application Support/Untitled Router/config/relay.env`
-3. `~/Library/Application Support/Untitled Router Data/subscription.jsonl`
+## Repository conventions
 
-The extension does not send network requests.
+- Keep each extension under `extensions/<name>/`.
+- Keep extension assets beside the code that uses them.
+- Add configuration files only when a feature needs them; do not add empty directories.
+- Keep credentials and local OMP state outside this repository.
+- Use explicit launch flags for session-only extensions.
+- Describe persistent settings changes before an installation command.
+- Use short Conventional Commit messages, such as `feat: add an extension` or `fix: cancel a stale timer`.

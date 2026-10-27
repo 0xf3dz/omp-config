@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-readonly PLUGIN_SOURCE="github:0xf3dz/omp-untitled"
+readonly PLUGIN_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 
 if ! command -v omp >/dev/null 2>&1; then
   printf 'OMP is required. Install OMP before this plugin.\n' >&2
   exit 1
 fi
 
-omp plugin install "${PLUGIN_SOURCE}"
+omp plugin link "${PLUGIN_DIR}"
 
 left_segments="$(omp config get statusLine.leftSegments)"
 case "${left_segments}" in
