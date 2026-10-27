@@ -7,6 +7,7 @@ The repository keeps the `omp-untitled` name and Git history.
 
 ```text
 extensions/
+  quota-resume/   Session-only continuation after quota failures
   untitled/       Untitled telemetry extension and installer
 README.md         Repository setup and conventions
 ```
@@ -24,7 +25,15 @@ The repository root does not install an extension bundle.
    cd omp-untitled
    ```
 
-3. Read the [Untitled instructions](extensions/untitled/README.md) before installation.
+3. Select an extension:
+
+   | Extension | Purpose | Setup |
+   | --- | --- | --- |
+   | [Untitled](extensions/untitled/README.md) | Show local Untitled metrics. | Explicit launch or persistent local package link. |
+   | [Quota resume](extensions/quota-resume/README.md) | Continue after terminal quota failures. | Explicit launch and `/quota-resume on` for one session. |
+
+No extension activates when you clone the repository.
+Do not install the repository root or add the entire `extensions/` directory to OMP configuration.
 
 ## Existing installation
 
