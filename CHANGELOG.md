@@ -4,6 +4,7 @@
 
 ### Added
 
+- Add the ASD-STE100 prose rules as a reusable skill.
 - Add the session-only quota resume extension with explicit on, off, and status commands.
 - Add provider-timed recovery and 60-second recovery probes when no reset time exists.
 
