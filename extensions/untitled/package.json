@@ -5,7 +5,7 @@
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "https://github.com/0xf3dz/omp-untitled.git"
+    "url": "https://github.com/0xf3dz/omp-config.git"
   },
   "omp": {
     "name": "Untitled for OMP",

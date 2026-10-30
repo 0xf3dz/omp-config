@@ -11,8 +11,11 @@
 ### Changed
 
 - Organize the repository as personal OMP developer configuration.
-- Move Untitled into `extensions/untitled/` without changes to its metrics implementation.
+- Update Untitled in `extensions/untitled/` with routing recaps and session metrics.
 - Replace the GitHub-root installer with a local package link from the checkout.
+- Add one Untitled routing recap per prompt with actual model names, turn counts, and tools.
+- Replace the recap's fallback surface with a native card and remove the input-area recap.
+- Use `omp-config/extensions/untitled/` as the only installed Untitled extension source.
 - Retain the `omp-untitled` package identity and existing Git history.
 
 ### Migration
