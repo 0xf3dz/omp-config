@@ -1,4 +1,4 @@
-# Quota resume
+# Auto-nudge
 
 This extension sends a new continuation after a quota error ends an OMP turn.
 It preserves the current conversation and completed tool results.
@@ -7,36 +7,37 @@ It leaves OMP's native retry in control while that retry remains active.
 ## Requirements
 
 - OMP with managed extension timers and the `agent_end.willContinue` event field.
-- OMP 18.13.1 passed the runtime checks for this extension.
+- OMP 18.20.0 passed the runtime checks for this extension.
 - An open interactive OMP process and an awake computer.
 
 ## Enable for one session
-
-Keep this extension outside OMP's automatic discovery directories.
-Do not install it as a global plugin or add it to global `extensions` settings.
 
 1. Exit the selected OMP session.
 2. Start OMP with the absolute path to this entry file:
 
    ```bash
-   omp --resume --extension /absolute/path/to/omp-untitled/extensions/quota-resume/index.ts
+   omp --resume --extension /absolute/path/to/omp-config/extensions/quota-resume/index.ts
    ```
 
 3. Select your saved session.
-4. Enter `/quota-resume on`.
+4. Enter `/auto-nudge on`.
 5. Submit your task or continuation instruction once.
 
 For a new session, omit `--resume`.
-The extension starts disabled and needs `/quota-resume on` after each launch.
+The extension starts disabled and needs `/auto-nudge on` after each launch.
 It does not change global settings or consume saved quota-reset credits.
+
+To load it in every new session, copy `index.ts` to
+`~/.omp/agent/extensions/auto-nudge.ts` and remove the `--extension` argument.
+Start and resume sessions as usual.
 
 ## Commands
 
 | Command | Effect |
 | --- | --- |
-| `/quota-resume on` | Enable the watcher for the current main session. |
-| `/quota-resume status` | Show its state and next scheduled attempt. |
-| `/quota-resume off` | Disable the watcher and cancel a pending attempt. |
+| `/auto-nudge on` | Enable the watcher for the current main session. |
+| `/auto-nudge status` | Show its state and next scheduled attempt. |
+| `/auto-nudge off` | Disable the watcher and cancel a pending attempt. |
 
 ## Recovery
 
@@ -52,7 +53,7 @@ It does not change global settings or consume saved quota-reset credits.
 
 The extension uses OMP's quota classifier and provider retry-time parser.
 It does not read the usage countdown from Tern or query a separate usage endpoint.
-The companion `quota-resume-prompt.md` instructs the agent to continue without a replay of completed actions.
+It sends its own continuation text and does not replay the original prompt.
 
 ## Cancellation and limits
 
@@ -69,6 +70,6 @@ This can produce repeated failed requests until quota becomes available.
 
 ## Verification
 
-The OMP 18.13.1 runtime checks used a local provider with synthetic quota errors.
-They covered a provider-timed continuation, a 60-second recovery without timing, and cancellation with `/quota-resume off`.
+The OMP 18.20.0 runtime checks used a local provider with synthetic quota errors.
+They covered a provider-timed continuation, a 60-second recovery without timing, and cancellation with `/auto-nudge off`.
 The checks did not exercise a real five-hour provider reset.

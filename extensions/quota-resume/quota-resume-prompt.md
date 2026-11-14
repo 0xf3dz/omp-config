@@ -1,1 +1,0 @@
-The previous turn stopped because the provider quota was exhausted. Continue the unfinished task from the current conversation and recorded tool results. Preserve completed work. Do not replay the original prompt or repeat completed actions. If the task is already complete, report that and stop.
