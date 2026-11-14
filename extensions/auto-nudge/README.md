@@ -16,7 +16,7 @@ It leaves OMP's native retry in control while that retry remains active.
 2. Start OMP with the absolute path to this entry file:
 
    ```bash
-   omp --resume --extension /absolute/path/to/omp-config/extensions/quota-resume/index.ts
+   omp --resume --extension /absolute/path/to/omp-config/extensions/auto-nudge/index.ts
    ```
 
 3. Select your saved session.

@@ -6,7 +6,7 @@ Personal extensions and developer configuration for [Oh My Pi](https://github.co
 
 ```text
 extensions/
-  quota-resume/   Auto-nudge: session-only continuation after quota failures
+  auto-nudge/     Auto-nudge: session-only continuation after quota failures
   untitled/       Untitled routing recaps, metrics, and installer
 skills/
   asd-ste100-writing/  User-facing prose rules in ASD-STE100 Simplified Technical English

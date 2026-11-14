@@ -2,7 +2,7 @@
  * Auto-nudge for OMP.
  *
  * Install (session-only):
- *   omp --resume --extension /absolute/path/to/omp-config/extensions/quota-resume/index.ts
+ *   omp --resume --extension /absolute/path/to/omp-config/extensions/auto-nudge/index.ts
  *
  * Or copy this file to ~/.omp/agent/extensions/auto-nudge.ts so OMP loads it
  * in each session.
