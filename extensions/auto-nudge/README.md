@@ -7,7 +7,6 @@ It leaves OMP's native retry in control while that retry remains active.
 ## Requirements
 
 - OMP with managed extension timers and the `agent_end.willContinue` event field.
-- OMP 18.20.0 passed the runtime checks for this extension.
 - An open interactive OMP process and an awake computer.
 
 ## Enable for one session
