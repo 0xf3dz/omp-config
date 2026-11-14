@@ -66,9 +66,3 @@ This can produce repeated failed requests until quota becomes available.
 - Success does not schedule a prompt to continue a task that the agent considers complete.
 - Process exit removes the timer and enabled state.
 - The extension does not prevent system sleep.
-
-## Verification
-
-The OMP 18.20.0 runtime checks used a local provider with synthetic quota errors.
-They covered a provider-timed continuation, a 60-second recovery without timing, and cancellation with `/auto-nudge off`.
-The checks did not exercise a real five-hour provider reset.
